@@ -113,6 +113,7 @@ AlignItens: {
     textAlign: 'center',
     color: 'white',
     borderColor: "rgba(0,0,0,0.5)",
+    fontWeight:800
   },
   input: {
     bottom: 20,
