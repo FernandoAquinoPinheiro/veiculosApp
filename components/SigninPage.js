@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert } from "react-native";
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert,ImageBackground } from "react-native";
 import { auth } from "../firebase"; // Certifique-se de importar corretamente
 import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth"; // Importar as funções necessárias
 
@@ -35,6 +35,8 @@ export default function Signin({ navigation }) {
 
     return (
         <View style={estilo.container}>
+             <ImageBackground resizeMode="cover" style={estilo.fundo} source={require("../assets/fundo 2.png")}>
+             <View style={estilo.AlignItens}>
             <Text style={estilo.titulo}>Cadastro</Text>
             <TextInput
                 style={estilo.inputTexto}
@@ -61,6 +63,8 @@ export default function Signin({ navigation }) {
             <TouchableOpacity style={estilo.botaoVoltar} onPress={() => navigation.navigate("Login")}>
                 <Text style={estilo.textoBotaoVoltar}>Voltar ao Login</Text>
             </TouchableOpacity>
+            </View>
+            </ImageBackground>
         </View>
     );
 }
@@ -71,6 +75,20 @@ const estilo = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'black',
+    },
+    AlignItens: {
+        top:'25%' ,
+        position:'absolute',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    fundo: {
+
+        width: '100%',
+        height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        resizeMode: 'contain',
     },
     titulo: {
         fontSize: 40,
@@ -99,9 +117,10 @@ const estilo = StyleSheet.create({
     },
     botaoVoltar: {
         marginTop: 15,
+       
     },
     textoBotaoVoltar: {
         fontSize: 16,
-        color: 'lightblue',
+        color: 'white',
     },
 });

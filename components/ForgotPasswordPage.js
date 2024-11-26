@@ -53,15 +53,17 @@ export default function ForgotPassPage({ navigation }) {
   };
 
   return (
-   
-      <View style={styles.container}>
+    <View style={styles.container}>
+    <ImageBackground resizeMode="cover" style={styles.fundo} source={require("../assets/fundo3.png")}>
+      
+       <View style={styles.AlignItens}>
         <Text style={styles.title}>Recuperar Senha</Text>
         <TextInput
           style={styles.input}
           value={email}
           onChangeText={setEmail}
           placeholder="Insira seu email"
-          placeholderTextColor="rgba(255,255,255,0.6)"
+          placeholderTextColor="rgba(0,0,0,0.5)"
         />
         <TouchableOpacity style={styles.btnEnviar} onPress={handlePasswordReset}>
           <Text style={styles.txtBtn}>Enviar</Text>
@@ -69,7 +71,12 @@ export default function ForgotPassPage({ navigation }) {
         <TouchableOpacity onPress={() => navigation.navigate("Login")}>
           <Text style={styles.voltar}>Voltar ao Login</Text>
         </TouchableOpacity>
+        </View>
+        </ImageBackground>
+
+        
       </View>
+      
     
   );
 }
@@ -79,6 +86,21 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
   },
+  fundo: {
+
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    resizeMode: 'contain',
+},
+
+AlignItens: {
+    top:'30%' ,
+    position:'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
+},
   container: {
     width: "100%",
     height: "100%",
@@ -86,39 +108,38 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   title: {
-    fontSize: 22,
-    fontWeight: "800",
-    color: "#fff",
-    marginBottom: 20,
+    fontSize: 40,
+    marginBottom: 35,
+    textAlign: 'center',
+    color: 'white',
+    borderColor: "rgba(0,0,0,0.5)",
   },
   input: {
-    fontSize: 18,
-    margin: 10,
-    padding: 10,
-    color: "#fff",
-    width: 290,
-    backgroundColor: "rgba(0,0,0,0.2)",
+    bottom: 20,
+        width: 300,
+        height: 50,
+        textAlign: 'center',
+        backgroundColor: 'white',
+        marginVertical: 10,
+        borderRadius: 10,
+        paddingHorizontal: 15,
+        fontSize: 25,
   },
   btnEnviar: {
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 20,
-    width: 170,
+    width: 150,
     height: 50,
-    backgroundColor: "#FFDE00",
-    borderColor: "rgba(0,0,0,0.5)",
-    borderBottomWidth: 2.2,
-    borderRightWidth: 1,
-    borderLeftWidth: 1,
-    marginTop: 20,
+    borderRadius: 10,
+    backgroundColor: 'grey',
+    top: 5,
   },
   txtBtn: {
-    color: "#000",
-    fontWeight: "800",
-    fontSize: 18,
+    fontSize: 24,
+    color: 'white',
+    textAlign: 'center',
+    padding: 7,
   },
   voltar: {
-    color: "skyblue",
+    color: "white",
     fontSize: 16,
     marginTop: 20,
   },

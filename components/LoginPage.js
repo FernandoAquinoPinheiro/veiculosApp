@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react"; 
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, Alert } from "react-native";
+import React, { useEffect, useState } from "react";
+import { StyleSheet, Text, View, TouchableOpacity, TextInput, Alert, ImageBackground } from "react-native";
 import { auth } from "../firebase"; // Certifique-se de importar auth corretamente
 import { signInWithEmailAndPassword } from "firebase/auth"; // Importar a função
 
@@ -32,38 +32,45 @@ export default function Login({ navigation, route }) {
     }
 
     return (
+
         <View style={estilo.container}>
-            <Text style={estilo.titulo}>Login</Text>
-            <TextInput 
-                style={estilo.inputTexto} 
-                onChangeText={text => setEmail(text)} 
-                placeholder="Digite o email." 
-                autoCapitalize="none"
-                keyboardType="email-address"
-            />
-            <TextInput 
-                style={estilo.inputTexto} 
-                secureTextEntry={true} 
-                onChangeText={text => setSenha(text)} 
-                placeholder="Digite a senha." 
-            />
-            <TouchableOpacity style={estilo.botaoLogar} onPress={logar}> 
-                <Text style={estilo.textoBotaoLogar}>Logar</Text>
-            </TouchableOpacity>
+            <ImageBackground resizeMode="cover" style={estilo.fundo} source={require("../assets/fundo.jpg")}>
+                <View style={estilo.AlignItens}>
 
-            <View style={estilo.signView}>
-                <Text style={estilo.txtSign}>Primeiro acesso e deseja realizar um cadastro?</Text>
-                <TouchableOpacity style={estilo.btnSign} onPress={() => navigation.navigate('Signin')}>
-                    <Text style={estilo.txtBtnSign}> Clique aqui</Text>
-                </TouchableOpacity>
-            </View>
+                    <Text style={estilo.titulo}>Login</Text>
+                    <TextInput
+                        style={estilo.inputTexto}
+                        onChangeText={text => setEmail(text)}
+                        placeholder="Digite o email."
+                        autoCapitalize="none"
+                        keyboardType="email-address"
+                    />
+                    <TextInput
+                        style={estilo.inputTexto}
+                        secureTextEntry={true}
+                        onChangeText={text => setSenha(text)}
+                        placeholder="Digite a senha."
+                    />
+                    <TouchableOpacity style={estilo.botaoLogar} onPress={logar}>
+                        <Text style={estilo.textoBotaoLogar}>Logar</Text>
+                    </TouchableOpacity>
 
-            <View style={estilo.signView}>
-                <Text style={estilo.txtSign}>Esqueceu a senha?</Text>
-                <TouchableOpacity style={estilo.btnSign} onPress={() => navigation.navigate('ForgotPass')}>
-                    <Text style={estilo.txtBtnSign}> Clique aqui</Text>
-                </TouchableOpacity>
-            </View>
+                    <View style={estilo.signView1}>
+                        <Text style={estilo.txtSign}>Primeiro acesso</Text>
+                        <TouchableOpacity style={estilo.btnSign} onPress={() => navigation.navigate('Signin')}>
+                            <Text style={estilo.txtBtnSign}> Clique aqui</Text>
+                        </TouchableOpacity>
+                    </View>
+
+                    <View style={estilo.signView2}>
+                        <Text style={estilo.txtSign}>Esqueceu a senha?</Text>
+                        <TouchableOpacity style={estilo.btnSign} onPress={() => navigation.navigate('ForgotPass')}>
+                            <Text style={estilo.txtBtnSign}> Clique aqui</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+
+            </ImageBackground>
         </View>
     );
 }
@@ -71,10 +78,24 @@ export default function Login({ navigation, route }) {
 
 const estilo = StyleSheet.create({
     container: {
-        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'black',
+    },
+    fundo: {
+
+        width: '100%',
+        height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        resizeMode: 'contain',
+    },
+
+    AlignItens: {
+        top:'25%' ,
+        position:'absolute',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     titulo: {
         fontSize: 50,
@@ -106,19 +127,33 @@ const estilo = StyleSheet.create({
         textAlign: 'center',
         padding: 7,
     },
-    signView: {
+    signView1: {
         marginVertical: 15,
         alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        padding:10,
+    },
+
+    signView2: {
+        alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        margin:-10
     },
     txtSign: {
         color: 'white',
         fontSize: 16,
+        justifyContent: 'center'
     },
     btnSign: {
-        marginTop: 5,
+        justifyContent: 'center'
     },
     txtBtnSign: {
         color: 'lightblue',
         fontSize: 16,
+        justifyContent: 'center'
     },
 });
