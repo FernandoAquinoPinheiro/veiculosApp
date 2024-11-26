@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, TextInput, Alert, ImageBackground } from "react-native";
-import { auth } from "../firebase"; // Certifique-se de importar auth corretamente
-import { signInWithEmailAndPassword } from "firebase/auth"; // Importar a função
+import { auth } from "../firebase"; 
+import { signInWithEmailAndPassword } from "firebase/auth"; 
 
 export default function Login({ navigation, route }) {
     const [email, setEmail] = useState('');
@@ -20,13 +20,15 @@ export default function Login({ navigation, route }) {
                 const user = userCredential.user;
 
                 if (!user.emailVerified) {
+                    console.log("E-mail não verificado:", email);
                     Alert.alert("Atenção", "Por favor, verifique seu e-mail antes de fazer login.");
                     return;
                 }
-
+                console.log("Usuário autenticado e verificado:", email);
                 navigation.navigate('Routes', { email });
             })
             .catch(error => {
+                console.error("Erro de login:", error.message);
                 Alert.alert("Erro", error.message);
             });
     }

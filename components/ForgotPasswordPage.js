@@ -9,7 +9,7 @@ import {
   ImageBackground,
 } from "react-native";
 import { sendPasswordResetEmail } from "firebase/auth";
-import { auth } from "../firebase"; // Certifique-se de ajustar o caminho do seu arquivo firebase
+import { auth } from "../firebase"; 
 
 export default function ForgotPassPage({ navigation }) {
   const [email, setEmail] = useState("");
@@ -33,7 +33,7 @@ export default function ForgotPassPage({ navigation }) {
         ],
         { cancelable: false }
       );
-    } catch (error) { // Removida a anotação `: any`
+    } catch (error) { 
       console.error("Erro ao enviar o email de redefinição:", error.code);
 
       let errorMessage;

@@ -9,7 +9,7 @@ export default function AccessRoute() {
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="LoginStack" component={StackLogin} />
-            <Stack.Screen name="MainRoutes" component={Routes} />
+            <Stack.Screen name="Routes" component={Routes} />
         </Stack.Navigator>
     );
 }
