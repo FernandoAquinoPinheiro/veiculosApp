@@ -1,4 +1,3 @@
-![login](https://github.com/user-attachments/assets/69f0eda5-e8ec-4f4d-a368-c76ea2ed3583)
 ![cadastro](https://github.com/user-attachments/assets/c0c25dec-c6e4-48c8-99e4-4b84828312f1)
 ![forgot](https://github.com/user-attachments/assets/9f8ba17e-04da-4cd8-9bbc-15550423aa7e)
 ![home](https://github.com/user-attachments/assets/be30c0ac-0776-46e2-91d5-ff364577bc00)
